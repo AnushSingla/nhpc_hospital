@@ -1,0 +1,44 @@
+{
+    "database": {
+        "host": "localhost",
+        "user": "root",
+        "password": "Suhan@24510",
+        "database": "nhpc_app",
+        "port": 3306
+    },
+    "files": {
+        "html_file": "NHPC EMPANELLED HOSPITALS.html",
+        "location_csv": "loc_master.csv",
+        "geo_mapping": "geo_mapping.json"
+    },
+    "thresholds": {
+        "hindi_ratio_threshold": 0.1,
+        "english_contamination_threshold": 0.15,
+        "min_address_length": 3,
+        "min_name_length": 3,
+        "split_quality_threshold": 2
+    },
+    "performance": {
+        "batch_size": 100,
+        "enable_profiling": false,
+        "enable_detailed_logging": true,
+        "enable_separation_debugging": true
+    },
+    "text_processing": {
+        "aggressive_serial_removal": true,
+        "preserve_address_numbers": true,
+        "validate_final_output": true
+    },
+    "geocoding": {
+    "enabled": true,
+    "google_api_key": "AIzaSyAm0zl3qVspZz0oWr_0W_YOnNg_0TvpQEM",
+    "rate_limit_delay": 1,
+    "max_retries": 3
+  },
+    "ollama": {
+    "model": "gemma:2b",
+    "api_url": "http://localhost:11434/api/generate",
+    "timeout": 30,
+    "max_retries": 3
+  }
+}

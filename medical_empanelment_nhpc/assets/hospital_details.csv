@@ -1,0 +1,11 @@
+﻿Hosp_id,Hosp_name,SCHEME,Cont_person,Cont_no,hosp_add,valid_from,VALID_UPTO,LINK_ADD,LOC_CODE,SCHEME2,RegValidUptoDt,Hosp_Offer
+1,Amrita,Direct,Dr. A Sharma,9876543210,Sector 15, 2024-01-01,01-01-26,https://amrita-hosp.com,DL01,HealthPlus,01-01-26,Cardiac Care
+2,Max,Direct,Dr. K Patel,9876543211,Sector 22, 2023-05-15,15-05-25,https://maxhealth.com,DL02,HealthSecure,15-05-25,Oncology
+3,Fortis,Direct,Ms. R Nair,9876543212,Sector 62, 2024-03-10,10-03-26,https://fortis.com,MH01,WellCare,10-03-26,Emergency
+4,QRG,Indirect,Mr. S Rao,9876543213,Sector 18, 2023-07-01,01-07-25,https://qrghealth.com,MH02,CarePlus,01-07-25,Diagnostics
+5,Accord,Indirect,Dr. T Mehta,9876543214,Sector 28, 2024-06-01,01-06-26,https://accordmed.com,GJ01,CareSafe,01-06-26,Neurology
+6,Sarvodaya,Direct,Ms. I Singh,9876543215,Sector 34, 2023-11-11,11-11-25,https://sarvodayahealth.com,PB01,HealthFirst,11-11-25,Maternity
+7,Yatharth,Indirect,Dr. B Pandey,9876543216,Sector 44, 2024-02-20,20-02-26,https://yatharth.com,UP01,MedShield,20-02-26,Ortho
+8,Asian,Indirect,Dr. V Reddy,9876543217,Sector 17, 2023-09-09,09-09-25,https://asianhospital.com,UP02,HealthCover,09-09-25,ENT
+9,AIIMS,Direct,Prof. N Jain,9876543218,Ansari Nagar, 2022-01-01,01-01-27,https://aiims.edu,DL03,GovScheme,01-01-27,All Services
+10,Apollo,Direct,Dr. M Chawla,9876543219,Sarita Vihar, 2024-04-01,01-04-26,https://apollohospitals.com,KA01,MedCare,01-04-26,Transplants
