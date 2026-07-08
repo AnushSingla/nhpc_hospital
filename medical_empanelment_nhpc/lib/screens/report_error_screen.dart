@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
+import 'package:url_launcher/url_launcher.dart';
 
 class ReportErrorScreen extends StatefulWidget {
   const ReportErrorScreen({super.key});
@@ -16,7 +17,7 @@ class _ReportErrorScreenState extends State<ReportErrorScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Report an Error'),
+        title: const Text('Give Feedback'),
         backgroundColor: Colors.blueAccent,
       ),
       body: Padding(
@@ -24,7 +25,7 @@ class _ReportErrorScreenState extends State<ReportErrorScreen> {
         child: Column(
           children: [
             const Text(
-              'Describe the issue you faced:',
+              'Give your feedback here:',
               style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
             ),
             const SizedBox(height: 16),
@@ -56,28 +57,22 @@ class _ReportErrorScreenState extends State<ReportErrorScreen> {
                 }
 
                 try {
-                  final response = await http.post(
-                    Uri.parse('http://192.168.29.166:3000/api/feedback'),
-                    headers: {'Content-Type': 'application/json'},
-                    body: jsonEncode({'feedback': feedback}),
+                  final Uri emailUri = Uri(
+                    scheme: 'mailto' ,
+                    path: 'beastanush007@gmail.com',
+                     query: 'subject=App Feedback&body=${Uri.encodeComponent(feedback)}',
                   );
+                  await launchUrl(emailUri);
+                    
+                 ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(
+                    content: Text('Email app opened.'),
+                     ),
+                    );
 
-                  if (response.statusCode == 200) {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(
-                        content: Text('Thank you for your feedback!'),
-                      ),
-                    );
-                    Navigator.pop(context);
-                  } else {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(
-                        content: Text(
-                          'Failed to submit feedback. Please try again.',
-                        ),
-                      ),
-                    );
-                  }
+                 Navigator.pop(context);
+                  
+                  
                 } catch (e) {
                   ScaffoldMessenger.of(
                     context,
@@ -100,9 +95,9 @@ class ReportErrorFAB extends StatelessWidget {
   Widget build(BuildContext context) {
     return FloatingActionButton.extended(
       onPressed: onPressed,
-      icon: const Icon(Icons.report_problem, color: Colors.black),
-      label: const Text('Report Error', style: TextStyle(color: Colors.black)),
-      backgroundColor: const Color.fromARGB(255, 235, 127, 95),
+      icon: const Icon(Icons.chat, color: Colors.black),
+      label: const Text('Give Feedback', style: TextStyle(color: Colors.black)),
+      backgroundColor: const Color.fromARGB(255, 37, 218, 234),
       heroTag: 'report_error_fab',
     );
   }

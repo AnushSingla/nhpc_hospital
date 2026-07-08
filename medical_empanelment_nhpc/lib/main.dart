@@ -70,8 +70,8 @@ class ReportErrorFAB extends StatelessWidget {
     return FloatingActionButton.extended(
       onPressed: onPressed,
       icon: const Icon(Icons.report_problem, color: Colors.white),
-      label: const Text('Report Error', style: TextStyle(color: Colors.white)),
-      backgroundColor: Colors.redAccent,
+      label: const Text('Give Feedback', style: TextStyle(color: Colors.white)),
+      backgroundColor: const Color.fromARGB(255, 37, 218, 234),
       heroTag: 'report_error_fab',
     );
   }
