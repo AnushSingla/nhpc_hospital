@@ -174,9 +174,12 @@ class _HospitalListPageState extends State<HospitalListPage>
     setState(() {
       filteredHospitals =
           allHospitals.where((hospital) {
-            final matchesSearch = hospital.Hosp_name.toLowerCase().contains(
-              query,
-            );
+            final hospitalName = hospital.Hosp_name.toLowerCase();
+            final stateName = (locCodeToState[hospital.LOC_CODE] ?? "").toLowerCase();
+            final address = hospital.hosp_add.toLowerCase();
+            final scheme = hospital.SCHEME.toLowerCase();
+            final matchesSearch = hospitalName.contains(query) || stateName.contains(query) ||     address.contains(query) ||
+            scheme.contains(query);
             final matchesScheme =
                 selectedScheme == null || hospital.SCHEME == selectedScheme;
             final matchesState =
@@ -601,7 +604,7 @@ class _HospitalListPageState extends State<HospitalListPage>
               color: primaryBlue.withValues(alpha: 0.1),
               borderRadius: BorderRadius.circular(6),
             ),
-            child: const Icon(Icons.translate, color: primaryBlue, size: 16),
+            child: const Icon(Icons.language, color: primaryBlue, size: 16),
           ),
           const SizedBox(width: 10),
           Text(
