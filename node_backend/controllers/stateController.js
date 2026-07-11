@@ -1,0 +1,42 @@
+const pool = require('../config/db');
+const locationMap = {
+  1: "DELHI",
+  2: "HARYANA",
+  3: "UTTAR PRADESH",
+  4: "UTTARAKHAND",
+  5: "WEST BENGAL",
+  6: "BIHAR",
+  7: "MAHARASHTRA",
+  8: "PUNJAB",
+  9: "HIMACHAL PRADESH",
+  10: "UT OF JAMMU AND KASHMIR",
+  11: "ODISHA",
+  12: "JHARKHAND",
+  13: "ASSAM",
+  14: "MANIPUR",
+  15: "TAMIL NADU",
+  16: "KARNATAKA",
+  17: "ANDHRA PRADESH",
+  18: "ARUNACHAL PRADESH",
+  19: "CHHATTISGARH",
+  20: "GOA",
+  21: "GUJARAT",
+  22: "KERALA",
+  23: "MADHYA PRADESH",
+  24: "MEGHALAYA",
+  25: "MIZORAM",
+  26: "NAGALAND",
+  27: "RAJASTHAN",
+  28: "SIKKIM",
+  29: "TRIPURA",
+  30: "ANDAMAN AND NICOBAR ISLANDS",
+  31: "CHANDIGARH",
+  32: "DADRA AND NAGAR HAVELI",
+  33: "DAMAN AND DIU",
+  34: "LAKSHADWEEP",
+  35: "PUDUCHERRY",
+  36: "TELANGANA"
+};
+exports.getStates = async (req, res) => {
+  res.json(locationMap);
+};

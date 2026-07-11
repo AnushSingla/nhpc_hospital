@@ -66,14 +66,7 @@ flutter:
   # the material Icons class.
   uses-material-design: true
   assets:
-    - assets/FSI.csv
-    - assets/loc_master.csv
-    - assets/names.csv
-    - assets/Hospital names.csv
-    - assets/hospital_details.csv
-    - assets/hospital_guidelines.pdf
-    - assets/insurance_details.pdf
-    - assets/medical_info.pdf
+   
 
   # To add assets to your application, add an assets section, like this:
   # assets:

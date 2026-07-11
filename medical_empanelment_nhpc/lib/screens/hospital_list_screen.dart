@@ -71,37 +71,24 @@ class _HospitalListPageState extends State<HospitalListPage>
     return cleaned.trim();
   }
 
-  // Load LOC_CODE to State mapping from CSV
+  // Load LOC_CODE to State mapping from backend
   Future<void> _loadLocationMapping() async {
-    try {
-      final csvData = await rootBundle.loadString('assets/loc_master.csv');
-      final lines = csvData.split('\n');
+    try{
+      final url = Uri.parse('http://10.0.2.2:3000/api/states');
+      final response = await http.get(url);
+      if(response.statusCode==200){
+        final Map<String , dynamic> data = json.decode(response.body);
+        locCodeToState.clear();
 
-      for (int i = 1; i < lines.length; i++) {
-        // Skip header row
-        final fields = lines[i].split(',');
-        if (fields.length >= 2) {
-          final locCode = fields[0].trim(); // LOC_CODE column
-          String stateName = fields[1].trim(); // State Name column
+      data.forEach((key, value) {
+        locCodeToState[key] = value.toString();
+      });
 
-          // Remove quotes if present
-          if (stateName.startsWith('"') && stateName.endsWith('"')) {
-            stateName = stateName.substring(1, stateName.length - 1);
-          }
-
-          // Remove any extra quotes
-          stateName = stateName.replaceAll('"', '').trim();
-
-          locCodeToState[locCode] = stateName;
-        }
-      }
-
-      print('Loaded ${locCodeToState.length} location mappings');
-      print(
-        'Sample mappings: ${locCodeToState.entries.take(3).toList()}',
-      ); // Debug print
-    } catch (e) {
-      print('Error loading location mapping: $e');
+      
+    }
+      
+    }catch(e){
+     //
     }
   }
 
